@@ -34,11 +34,11 @@ if mode == "Simulate by File Size":
     st.progress(pct_used / 100.0)
     
     if total_projected_ram > MAX_RAM_MB:
-        st.error(f"⚠️ **High Risk of OOM Crash:** Exceeds 1 GB by {total_projected_ram - MAX_RAM_MB:.1f} MB. Processing spatial matrices (KMeans/PCA) will trigger an out-of-memory abort.")
+        st.error(f" *High Risk of OOM Crash:* Exceeds 1 GB by {total_projected_ram - MAX_RAM_MB:.1f} MB. Processing spatial matrices (KMeans/PCA) will trigger an out-of-memory abort.")
     elif total_projected_ram > SAFE_RAM_THRESHOLD_MB:
-        st.warning(f"⚠️ **Caution:** Leaves less than {MAX_RAM_MB - total_projected_ram:.1f} MB of free headroom. Aggregation or subsampling recommended.")
+        st.warning(f" *Caution:* Leaves less than {MAX_RAM_MB - total_projected_ram:.1f} MB of free headroom. Aggregation or subsampling recommended.")
     else:
-        st.success(f"✅ **Safe Zone:** App has {MAX_RAM_MB - total_projected_ram:.1f} MB of free memory remaining for clustering and visualizations.")
+        st.success(f" *Safe Zone:*App has {MAX_RAM_MB - total_projected_ram:.1f} MB of free memory remaining for clustering and visualizations.")
 
 else:
     st.subheader("Real-time File Profiler")
